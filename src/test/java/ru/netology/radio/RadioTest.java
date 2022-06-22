@@ -53,11 +53,26 @@ public class RadioTest {
 
         station.getNextRadioStation();
 
-        int expected = 1;
+        int expected = 0;
         int actual = station.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldSetNextNoValidRadioStation() {
+        Radio station = new Radio();
+
+        station.setCurrentRadioStation(15);
+
+        station.getNextRadioStation();
+
+        int expected = 0;
+        int actual = station.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void shouldSetPrewMinRadioStation() {
@@ -74,18 +89,19 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetPrewmmMaxRadioStation() {
+    public void shouldSetPrewNoValidRadioStation() {
         Radio station = new Radio();
 
         station.setCurrentRadioStation(15);
 
         station.getPrevRadioStation();
 
-        int expected = 8;
+        int expected = 9;
         int actual = station.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
+
 
     @Test
     public void shouldSetPrewRadioStation() {
