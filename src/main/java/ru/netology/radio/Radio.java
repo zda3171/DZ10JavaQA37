@@ -1,60 +1,50 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int currentRadioStation;
+    protected int currentRadioStation;
+    protected int currentVolume;
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    public void setCurrentRadioStation(int newCurrentRadiostation) {
-        if (newCurrentRadiostation < 0) {
-            newCurrentRadiostation = -1;
+    public void setCurrentRadioStation(int CurrentRadiostation) {
+        if (CurrentRadiostation < 0) {
+            return;
         }
-        if (newCurrentRadiostation > 9) {
-            newCurrentRadiostation = 9;
+        if (CurrentRadiostation > 9) {
+            return;
         }
-        currentRadioStation = newCurrentRadiostation;
+        this.currentRadioStation = CurrentRadiostation;
     }
-
-
-    private int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 10) {
-            newCurrentVolume = 10;
+    public void setCurrentVolume(int CurrentVolume) {
+        if (CurrentVolume < 0) {
+            return;
         }
-        if (newCurrentVolume < 0) {
-            newCurrentVolume = 0;
+        if (CurrentVolume > 10) {
+            return;
         }
 
-        currentVolume = newCurrentVolume;
+        this.currentVolume = CurrentVolume;
     }
 
 
     public void getNextRadioStation() {
         if (currentRadioStation < 9) {
-            if (currentRadioStation >= 0) {
-                currentRadioStation = currentRadioStation + 1;
-            } else {
-                currentRadioStation = 0;
-            }
+            currentRadioStation++;
         } else {
             currentRadioStation = 0;
         }
     }
 
     public void getPrevRadioStation() {
-        if (currentRadioStation < 9) {
-            if (currentRadioStation > 0) {
-                currentRadioStation = currentRadioStation - 1;
-            } else {
-                currentRadioStation = 9;
-            }
+        if (currentRadioStation > 0) {
+            currentRadioStation--;
         } else {
             currentRadioStation = 9;
         }
@@ -63,17 +53,13 @@ public class Radio {
 
     public void increaseVolume() {
         if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
-        } else {
-            currentVolume = 10;
+            currentVolume++;
         }
     }
 
     public void reduceVolume() {
         if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
-        } else {
-            currentVolume = 0;
+            currentVolume--;
         }
     }
 }

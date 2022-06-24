@@ -53,7 +53,7 @@ public class RadioTest {
 
         station.getNextRadioStation();
 
-        int expected = 0;
+        int expected = 1;
         int actual = station.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -67,7 +67,7 @@ public class RadioTest {
 
         station.getNextRadioStation();
 
-        int expected = 0;
+        int expected = 1;
         int actual = station.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -195,7 +195,7 @@ public class RadioTest {
 
         volume.increaseVolume();
 
-        int expected = 10;
+        int expected = 1;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -265,7 +265,7 @@ public class RadioTest {
 
         volume.reduceVolume();
 
-        int expected = 9;
+        int expected = 0;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
